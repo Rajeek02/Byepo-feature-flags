@@ -106,7 +106,6 @@ export default function Dashboard({ onLogout }) {
               <div style={styles.itemContent}>
                 <p style={styles.itemName}>{o.name}</p>
               </div>
-              <button onClick={() => deleteOrg(o._id)} style={styles.deleteButton}>Delete</button>
             </li>
           ))}
         </ul>
