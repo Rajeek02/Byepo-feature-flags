@@ -9,9 +9,9 @@ const app = express();
 connectDB();
 app.use(cors({
   origin: [
-    'https://byepo-feature-flags-f856wf2k1-mohameds-projects-6183ad2d.vercel.app',
-    'https://byepo-feature-flags-qvdy-f24oh3vub-mohameds-projects-6183ad2d.vercel.app',
-    'https://byepo-feature-flags-5n55-jcctknw8u-mohameds-projects-6183ad2d.vercel.app',
+    'https://byepo-feature-flags-3tqcs4j7d-mohameds-projects-6183ad2d.vercel.app',
+    'https://byepo-feature-flags-qvdy-nkb69ezt6-mohameds-projects-6183ad2d.vercel.app',
+    'https://byepo-feature-flags-5n55-nztc24cju-mohameds-projects-6183ad2d.vercel.app',
     'http://localhost:3000',
     'http://localhost:3001',
     'http://localhost:3002'
