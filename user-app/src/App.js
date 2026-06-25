@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import API from './api';
 import './App.css';
 
@@ -40,6 +40,7 @@ function App() {
     try {
       const res = await API.get(`/user/organizations/${selected}/flags`);
       setFeatures(res.data);
+      setError('');
     } catch (err) {
       setError('Unable to load features');
     } finally {
@@ -92,6 +93,8 @@ function App() {
             ))}
           </select>
         </div>
+
+        {error && <div className="error-message">{error}</div>}
 
         <div className="status-card">
           <div className="status-title">Current Check Result</div>
