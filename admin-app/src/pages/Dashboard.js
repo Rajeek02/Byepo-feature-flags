@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import API from '../api';
 export default function Dashboard({ onLogout }) {
@@ -6,8 +6,7 @@ export default function Dashboard({ onLogout }) {
  const [key, setKey] = useState('');
  const [msg, setMsg] = useState('');
  const navigate = useNavigate();
- useEffect(() => { fetchFlags(); }, []);
- const fetchFlags = async () => {
+const fetchFlags = useCallback(async () => {
    try {
      const res = await API.get('/org-admin/flags');
      setFlags(res.data);
@@ -19,7 +18,8 @@ export default function Dashboard({ onLogout }) {
      }
      setMsg(err.response?.data?.message || 'Unable to load flags');
    }
- };
+}, [navigate, onLogout]);
+useEffect(() => { fetchFlags(); }, [fetchFlags]);
  const createFlag = async () => {
    if (!key.trim()) return;
    try {
