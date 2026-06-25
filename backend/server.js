@@ -7,7 +7,16 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 const app = express();
 connectDB();
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://byepo-feature-flags-msu72v12a-mohameds-projects-6183ad2d.vercel.app',
+    'https://byepo-feature-flags-qvdy-f24oh3vub-mohameds-projects-6183ad2d.vercel.app',
+    'https://byepo-feature-flags-5n55-jcctknw8u-mohameds-projects-6183ad2d.vercel.app',
+    'http://localhost:3000',
+    'http://localhost:3001',
+    'http://localhost:3002'
+  ]
+}));
 app.use(express.json());
 app.use('/api/super-admin', require('./routes/superAdmin'));
 app.use('/api/org-admin', require('./routes/orgAdmin'));
